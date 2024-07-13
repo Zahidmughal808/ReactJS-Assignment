@@ -1,9 +1,6 @@
 # Getting Started with Create React App
 # ReactJS-Assignment
 
-## Project Setup
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ### Prerequisites
 Before running the project, ensure you have the following prerequisites installed:
 
