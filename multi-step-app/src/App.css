@@ -1,38 +1,234 @@
-.App {
-  text-align: center;
+.appLayout {
+  width: 100%;
+  overflow: hidden;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.carouselWrapper {
+  width: 100%;
+  padding: 30px 30px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
+  gap: 50px;
+}
+
+/* Question css */
+.question {
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  max-width: 280px;
 }
 
-.App-link {
-  color: #61dafb;
+.question h1 {
+  color: #fff;
+  font-size: 48px;
+  margin-bottom: 0;
+  transition: all 0.3s ease-in-out;
 }
 
-@keyframes App-logo-spin {
+.question h1.stepTitle-0 {
+  transition: all 0.3s ease-in-out;
+}
+.question h1.stepTitle-1 {
+  transition: all 0.3s ease-in-out;
+}
+.question h1.stepTitle-2 {
+  transition: all 0.3s ease-in-out;
+}
+.question h1.stepTitle-3 {
+  transition: all 0.3s ease-in-out;
+}
+
+.question h1.stepTitle-0 {
+  animation: fadeIn0 0.8s ease-out;
+}
+
+.question h1.stepTitle-1 {
+  animation: fadeIn1 0.8s ease-out;
+}
+
+.question h1.stepTitle-2 {
+  animation: fadeIn2 0.8s ease-out;
+}
+
+.question h1.stepTitle-3 {
+  animation: fadeIn3 0.8s ease-out;
+}
+
+.summarySlide {
+  width: 100%;
+  transition: all 0.3s ease-in-out;
+  animation: summarySlide 0.8s ease-out;
+}
+
+@keyframes fadeIn0 {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateY(-410px);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
   }
+}
+
+@keyframes fadeIn1 {
+  from {
+    opacity: 0;
+    transform: translateY(-410px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn2 {
+  from {
+    opacity: 0;
+    transform: translateY(-410px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn3 {
+  from {
+    opacity: 0;
+    transform: translateY(-410px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes summarySlide {
+  from {
+    opacity: 0;
+    transform: translateX(700px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Dot css */
+.dotsContainer {
+  display: flex;
+  padding: 10px 0;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dot {
+  width: 16px;
+  height: 16px;
+  border: 0;
+  outline: 2px solid transparent;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+  padding: 0;
+}
+
+.activeDot {
+  outline: 2px solid #fff;
+  background: #676d72;
+}
+
+/* Emoji css */
+.emoji-container {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 30px;
+  position: relative;
+}
+
+.emojiBtn {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.emojiBtn .tooltip {
+  opacity: 0;
+  position: absolute;
+  top: -12px;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  transition: all 0.3s ease-in-out;
+  width: max-content;
+  max-width: 170px;
+  padding: 10px 10px;
+  background-color: #eeeeee;
+  outline: 2px solid transparent;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.emojiBtn:hover span.tooltip {
+  opacity: 1;
+  outline: 2px solid #faad14;
+}
+
+.emojiBtn:hover svg {
+  color: #faad14;
+}
+
+.emojiBtn.activeEmoji .tooltip {
+  opacity: 1;
+  outline: 2px solid #faad14;
+}
+
+.activeEmoji svg {
+  color: #faad14;
+}
+
+.lastSlideBtn {
+  cursor: not-allowed;
+}
+
+/* Summary css */
+.response-item {
+  width: 100%;
+  padding: 12px 12px;
+  margin-bottom: 20px;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.questionHolder {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
+  color: #212529;
+}
+
+.answerHolder {
+  font-size: 16px;
+  color: #6c757d;
+  font-weight: 400;
+}
+
+.summaryWrapper {
+  width: 100%;
 }
