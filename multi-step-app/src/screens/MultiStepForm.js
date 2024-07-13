@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { Typography, Col, Row } from "antd";
 import { HappyFace, BadFace, DoubtFace } from "../utility/icons";
 import SummaryOfQuestions from "../components/SummaryOfQuestions";
+import axios from "axios";
+
+let apiUrl = process.env.REACT_APP_API_URL;
 
 const { Title } = Typography;
 
@@ -10,15 +13,34 @@ const MultiStepForm = () => {
   const [selectedEmojiIndex, setSelectedEmojiIndex] = useState(null);
   const [responses, setResponses] = useState([]);
 
-  const handleEmojiClick = (response, index) => {
-    setSelectedEmojiIndex(index);
-    setResponses([
-      ...responses,
-      { question: stepFormData[currentStep], answer: response },
-    ]);
-    if (currentStep < stepFormData.length - 1) {
-      setCurrentStep(currentStep + 1);
+  const handleEmojiClick = async (response, index) => {
+    try {
+      setSelectedEmojiIndex(index);
+        let req = {
+          question: stepFormData[currentStep],
+          answer: response,
+        };
+        const result = await axios.post(apiUrl, req, {
+          headers: {
+            "Content-Type": "application/json",
+            'Accept': 'application/json',
+            "Access-Control-Allow-Origin": "*"
+          },
+        });
+        console.log("result", result);
+    
+        setResponses([
+          ...responses,
+          { question: stepFormData[currentStep], answer: response },
+        ]);
+        if (currentStep < stepFormData.length - 1) {
+          setCurrentStep(currentStep + 1);
+        
+      }
+    }catch(error){
+      console.log("Error", error)
     }
+    
   };
 
   return (
