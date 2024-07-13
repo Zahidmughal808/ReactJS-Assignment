@@ -14,7 +14,8 @@ Before running the project, ensure you have the following prerequisites installe
 Note: Before run the client side application you have to run server on your machine!
 ###### ######### Steps to Run the Project on Server Side ######### ######### 
 
-Follow these steps to follow:
+### Steps to Run the Project on Server side
+Follow these steps to run the project:
 
 1. **Clone the Repository**:
    Clone the project repository to your local machine.
